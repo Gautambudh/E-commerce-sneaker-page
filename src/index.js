@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import { Provider } from 'react-redux';
-// import { store } from './app/store'
+import { Provider } from 'react-redux';
+import { store } from './app/store'
 import './index.css';
 import App from './App';
 import {
@@ -70,10 +70,10 @@ theme = responsiveFontSizes(theme);
 
 root.render(
   <React.StrictMode>
-  {/* <Provider store={store}> */}
+  <Provider store={store}>
   <ThemeProvider theme={theme}>
     <App />
   </ThemeProvider>
-  {/* </Provider> */}
+  </Provider>
   </React.StrictMode>
 );
