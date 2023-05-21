@@ -1,6 +1,8 @@
 # Frontend Mentor - Interactive card details form solution
 
-This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+# Frontend Mentor - E-commerce product page solution
+
+This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ## Table of contents
 
@@ -22,12 +24,12 @@ This is a solution to the [Interactive card details form challenge on Frontend M
 
 Users should be able to:
 
-- Fill in the form and see the card details update in real-time
-- Receive error messages when the form is submitted if:
-  - Any input field is empty
-  - The card number, expiry date, or CVC fields are in the wrong format
-- View the optimal layout depending on their device's screen size
-- See hover, active, and focus states for interactive elements on the page
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Open a lightbox gallery by clicking on the large product image
+- Switch the large product image by clicking on the small thumbnail images
+- Add items to the cart
+- View the cart and remove items from it
 
 ### Screenshot
 
@@ -36,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution code](https://github.com/Gautambudh/Interactive-card-details-form.git)
-- Live Site URL: [Live site](https://master--fancy-khapse-bb8604.netlify.app/)
+- Solution URL: [Solution code](https://github.com/Gautambudh/E-commerce-sneaker-page.git)
+- Live Site URL: [Live site](https://kaleidoscopic-pithivier-581613.netlify.app/)
 
 ## My process
 
@@ -51,31 +53,9 @@ Users should be able to:
 
 ### What I learned
 
-- Learned how to use MUI textfield component to build form faster.
-- Learned how to use error and helpertext props of textfield to show some error while validating input fields
-- used redux to handle the input states of the form
-- learned about the redux toolkit and its usecase which basically makes state handling easy and solves the problem of props hell 
+- abc
 
-the regex code below is what i used to check whether user inputs a number or anything other than number so that he see an error
-as in helper text "wrong format, number only"
 
-```js
-setCardNumber: (state, action) => {
-            state.cardNumber.number = action.payload.value;
-            const isValidNumber =  /^[0-9\s]+$/.test(state.cardNumber.number);
-            state.cardNumber.error = !isValidNumber;
-        },
-```
-i used below regex code to show the input creditcard number in pairs of 4 and space after every 4 digit
-
-```js
-{cardNumber.number ? cardNumber.number
-              .replace(/\s/g, "")
-              .replace(/(\d{4})/g, "$1 ")
-              .trim()
-              : 
-              ""}
-```
 
 
 ### Useful resources

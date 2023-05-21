@@ -13,18 +13,14 @@ import thumbnail4 from '../../assets/images/image-product-4-thumbnail.jpg';
 import minusIcon from '../../assets/images/icon-minus.svg';
 import plusIcon from '../../assets/images/icon-plus.svg';
 import CloseIcon from '@mui/icons-material/Close';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement, isAddToCartClicked, countState } from './reduxSlice';
 import CarouselComponent from './CarouselComponent';
 
 const image = [ img1, img2, img3, img4 ];
 const thumbnailList = [ thumbnail1, thumbnail2, thumbnail3, thumbnail4 ];
-
-// const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-//   "& .MuiDialogContent-root": {
-//     padding: theme.spacing(2)
-//   },
-// }));
 
 const Herosection = () => {
   const dispatch = useDispatch();
@@ -39,8 +35,11 @@ const Herosection = () => {
     setOpen(false);
   };
 
+  
   const [activeThumbnail, setActiveThumbnail] = React.useState('');
   const [ imageIndex, setImageIndex ] = React.useState(0);
+  const [ newIndex, setNewIndex ] = React.useState(0);
+  const [ carouselImgIndex, setCarouselImgIndex ] = React.useState(0);
 
   const handleClick = (thumbnail) => {
     if (activeThumbnail === thumbnail){
@@ -56,9 +55,14 @@ const Herosection = () => {
         <Grid item md={6} sx={{px:{lg:9, md:4}}}>
 
         {/* hero-image box */}
-        <Box sx={{height:{md:410, xs:320}}}>
+        <Box sx={{height:{md:410, xs:320}, display:{ xs:'none', md:'block'}}}>
           <Box onClick={handleClickOpen} component='img' src={image[imageIndex]} alt='thumb-1' height='100%' width='100%' 
           sx={{borderRadius:{md:3}, cursor:'pointer'}}/>
+        </Box>
+        <Box sx={{display:{ xs:'block', md:'none'}}}>
+          {/* <Box component='img' src={image[imageIndex]} alt='thumb-1' height='100%' width='100%' 
+          sx={{borderRadius:{md:3}, cursor:'pointer'}}/> */}
+          <CarouselComponent />
         </Box>
           <Dialog
           onClose={handleClose}
@@ -75,12 +79,12 @@ const Herosection = () => {
             }
           }}
         >
-        <Box sx={{textAlign:'right',mt:1, mr:{lg:3, md:7}}}>
+        <Box sx={{textAlign:'right',mt:1, mr:{lg:3, md:6}}}>
         <CloseIcon onClick={handleClose} sx={{cursor:'pointer', color:'white', strokeWidth: 1, stroke:'white',
         ":hover":{color:'hsl(26, 100%, 55%)', strokeWidth: 1, stroke:'hsl(26, 100%, 55%)',}}}/>
         </Box>
           <DialogContent sx={{opacity:1}} >
-          <CarouselComponent />
+          <CarouselComponent carouselImgIndex={carouselImgIndex}/>
 
           <Box className='thumbnail' sx={{display:{md:'flex', xs:'none'}, justifyContent:'space-around', mt:2, maxHeight:80, width:'100%'}}>
           {thumbnailList.map((item, index) => {
@@ -88,7 +92,7 @@ const Herosection = () => {
               <Box key={index} className={activeThumbnail === `thumbnail-${index + 1}` ? 'thumbnail-active' : ''}
               onClick={() => {
               handleClick(`thumbnail-${index + 1}`);
-              setImageIndex(index);
+              setCarouselImgIndex(index);
             }} 
             component='img' src={item} alt={`thumb-${index + 1}`} 
             sx={{borderRadius:3, maxWidth:80}}/>
@@ -102,7 +106,7 @@ const Herosection = () => {
         <Box className='thumbnail' sx={{display:{md:'flex', xs:'none'}, justifyContent:'space-between', mt:3, maxHeight:90, width:'100%'}}>
           {thumbnailList.map((item, index) => {
             return (
-              <Box key={index} className={activeThumbnail === `thumbnail-${index + 1}` ? 'active' : ''}
+              <Box key={index} className={activeThumbnail === `thumbnail-${index + 1}` ? 'thumbnail-active' : ''}
               onClick={() => {
               handleClick(`thumbnail-${index + 1}`);
               setImageIndex(index);

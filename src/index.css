@@ -29,8 +29,8 @@ body {
 
 .carousel-inner {
   border-radius: 16px;
-  max-height: 500px;
   max-width: 500px;
+  position: relative;
 }
 
 .carousel-item img {
@@ -47,16 +47,7 @@ body {
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  color: black;
-  top: calc(50% - 20px);
   padding: 4px;
-}
-
-.carousel-control-prev{
-  left: -24px;
-}
-.carousel-control-next{
-  right: -24px;
 }
 
 .carousel-control-prev img {
@@ -66,7 +57,21 @@ body {
   margin-left: 4px;
 }
 
-.svg:hover {
+/* .svg:hover {
   fill: hsl(26, 100%, 55%) !important;
-  /* color: black; */
+} */
+@media screen and (max-width: 1020px) {
+  .carousel-inner {
+    border-radius: 0;
+    max-height: 320px;
+    position: relative;
+  }
+  .carousel-item img {
+    border-radius: 0;
+    margin-top: 40px;
+    max-height: 100%;
+    max-width: 100%;
+    opacity: 1;
+    object-fit: cover;
+  }
 }
