@@ -65,6 +65,15 @@ let theme = createTheme({
       fontFamily: 'Kumbh Sans, sans-serif',
     },
   },
+  MuiBackdrop: {
+    components:{
+    styleOverrides: {
+      root: {
+        backgroundColor: "black",
+      },
+    },
+  }
+  },
 });
 theme = responsiveFontSizes(theme);
 
