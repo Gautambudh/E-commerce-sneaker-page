@@ -9,38 +9,38 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const image = [ img1, img2, img3, img4 ];
 
-const CarouselComponent = (props) => {
-
-  const { carouselImgIndex } = props;
+const MobileCarousel = (props) => {
 
   return (
     <>
-    <div id="carousel" className="carousel slide">
-    <Box className="carousel-inner" sx={{height:{lg:500, md:420}, width:{lg:500, md:420}, position:'relative'}}>
+    <Box id="carousel" className="carousel slide" sx={{p:{md:0, sm:1, xs:0}}}>
+    <Box className="carousel-inner" sx={{position:'relative',}}>
     {image.map((item, index) => {
       return (
         <>
-        <div className={index === 0 ? "carousel-item active" : "carousel-item"}>
-          <img src={item} className="d-block " alt="img-1" />
-        </div>
+        <Box className={index === 0 ? "carousel-item active" : "carousel-item"} 
+        sx={{height:{sm:420, xs:320}, width:'100%'  }}>
+          <Box component='img' src={item} className="d-block" alt="img-1" 
+          sx={{height:'100%', width:'100%', opacity: 1, objectFit:{sm:'fill'}, mt:{xs:5.5, sm:0}}}/>
+        </Box>
         </>
       )
     })}
     </Box>
 
     <IconButton size="medium" className="carousel-control-prev"  data-bs-target="#carousel" data-bs-slide="prev"
-      sx={{backgroundColor:'white', textAlign:'center',position:'absolute', top:{md:'45%', xs:'50%'}, left:{md:'-24px', xs:0},
+      sx={{backgroundColor:'white', position:'absolute', top:'50%', left:{sm:8, xs:0},
       ":hover":{backgroundColor:'white'}}}>
         <ArrowBackIosNewIcon sx={{color:'black', ":hover":{color:'orange'}}}/>
       </IconButton>
     <IconButton size="medium" className="carousel-control-next" data-bs-target="#carousel" data-bs-slide="next"
-      sx={{backgroundColor:'white', textAlign:'center', position:'absolute', top:{md:'45%', xs:'50%'}, right:{md:'-24px', xs:0},
+      sx={{backgroundColor:'white',  position:'absolute', top:'50%', right:{sm:8, xs:0},
       ":hover":{backgroundColor:'white'}}} >
       <ArrowForwardIosIcon sx={{color:'black', ":hover":{color:'orange'}}}/>
     </IconButton>
-</div>
-</>
+  </Box>
+  </>
   )
 }
 
-export default CarouselComponent
+export default MobileCarousel

@@ -81,7 +81,7 @@ function Navbar() {
           </IconButton>
           {/* Logo box */}
           
-          <Box component='img' src={logo} alt='..' sx={{mr:2}}/>
+          <Box component='img' src={logo} alt='..' sx={{mr:{md:2, sm:0}}}/>
 
           {/* tabs box */}
           <Box sx={{ display: { xs: 'none', sm: 'block' }, typography: "subtitle2", ml:2, color:'#787470' }}>

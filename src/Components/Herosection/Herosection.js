@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, TextField, Button, IconButton, Dialog, DialogContent } from '@mui/material';
-import { styled } from "@mui/material/styles";
+import { Box, Container, Grid, Typography, Button, IconButton, Dialog, DialogContent } from '@mui/material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import img1 from '../../assets/images/image-product-1.jpg';
 import img2 from '../../assets/images/image-product-2.jpg';
@@ -13,11 +12,10 @@ import thumbnail4 from '../../assets/images/image-product-4-thumbnail.jpg';
 import minusIcon from '../../assets/images/icon-minus.svg';
 import plusIcon from '../../assets/images/icon-plus.svg';
 import CloseIcon from '@mui/icons-material/Close';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement, isAddToCartClicked, countState } from './reduxSlice';
-import CarouselComponent from './CarouselComponent';
+import MobileCarouselComponent from './MobileCarousel';
+import DialogCarouselComponent from './DialogCarousel';
 
 const image = [ img1, img2, img3, img4 ];
 const thumbnailList = [ thumbnail1, thumbnail2, thumbnail3, thumbnail4 ];
@@ -55,22 +53,36 @@ const Herosection = () => {
         <Grid item md={6} sx={{px:{lg:9, md:4}}}>
 
         {/* hero-image box */}
-        <Box sx={{height:{md:410, xs:320}, display:{ xs:'none', md:'block'}}}>
+        <Box sx={{height:{md:410}, display:{ xs:'none', md:'block'}}}>
           <Box onClick={handleClickOpen} component='img' src={image[imageIndex]} alt='thumb-1' height='100%' width='100%' 
           sx={{borderRadius:{md:3}, cursor:'pointer'}}/>
         </Box>
+
+        {/* carousel for mobile viewport */}
         <Box sx={{display:{ xs:'block', md:'none'}}}>
-          {/* <Box component='img' src={image[imageIndex]} alt='thumb-1' height='100%' width='100%' 
-          sx={{borderRadius:{md:3}, cursor:'pointer'}}/> */}
-          <CarouselComponent />
+          <MobileCarouselComponent />
         </Box>
-          <Dialog
+
+        {/* thumbnail images under the hero image */}
+        <Box className='thumbnail' sx={{display:{md:'flex', xs:'none'}, justifyContent:'space-between', mt:3, maxHeight:90, width:'100%'}}>
+          {thumbnailList.map((item, index) => {
+            return (
+              <Box key={index} className={activeThumbnail === `thumbnail-${index + 1}` ? 'thumbnail-active' : ''}
+              onClick={() => {
+              handleClick(`thumbnail-${index + 1}`);
+              setImageIndex(index);
+            }} 
+            component='img' src={item} alt={`thumb-${index + 1}`} 
+            sx={{borderRadius:3, maxWidth:90}}/>
+            )
+          })}
+        </Box>
+        <Dialog
           onClose={handleClose}
-          aria-labelledby="customized-dialog-title"
           open={open}
           sx={{"& .MuiDialogContent-root": { py:0.5 , px:{lg:3, md:6},  overflowY:'hidden', overflowX:'hidden',
           }, "& .MuiDialog-container":{backgroundColor:'#000000ab'},
-          display:{md:'block', xs:'none'}}}
+          }}
           PaperProps={{
             style: {
               backgroundColor: "transparent",
@@ -84,7 +96,7 @@ const Herosection = () => {
         ":hover":{color:'hsl(26, 100%, 55%)', strokeWidth: 1, stroke:'hsl(26, 100%, 55%)',}}}/>
         </Box>
           <DialogContent sx={{opacity:1}} >
-          <CarouselComponent carouselImgIndex={carouselImgIndex}/>
+          <DialogCarouselComponent />
 
           <Box className='thumbnail' sx={{display:{md:'flex', xs:'none'}, justifyContent:'space-around', mt:2, maxHeight:80, width:'100%'}}>
           {thumbnailList.map((item, index) => {
@@ -101,21 +113,6 @@ const Herosection = () => {
         </Box>
           </DialogContent>
         </Dialog>
-
-        {/* thumbnail images under the hero image */}
-        <Box className='thumbnail' sx={{display:{md:'flex', xs:'none'}, justifyContent:'space-between', mt:3, maxHeight:90, width:'100%'}}>
-          {thumbnailList.map((item, index) => {
-            return (
-              <Box key={index} className={activeThumbnail === `thumbnail-${index + 1}` ? 'thumbnail-active' : ''}
-              onClick={() => {
-              handleClick(`thumbnail-${index + 1}`);
-              setImageIndex(index);
-            }} 
-            component='img' src={item} alt={`thumb-${index + 1}`} 
-            sx={{borderRadius:3, maxWidth:90}}/>
-            )
-          })}
-        </Box>
         </Grid>
 
         <Grid item md={6} sx={{mt:{md:0, xs:2}, px:{md:3, xs:1}}}>

@@ -27,19 +27,6 @@ body {
   opacity: 0.5;
 }
 
-.carousel-inner {
-  border-radius: 16px;
-  max-width: 500px;
-  position: relative;
-}
-
-.carousel-item img {
-  border-radius: 16px;
-  max-height: 100%;
-  max-width: 100%;
-  opacity: 1;
-}
-
 .carousel-control-prev,
 .carousel-control-next {
   background-color: white;
@@ -50,28 +37,3 @@ body {
   padding: 4px;
 }
 
-.carousel-control-prev img {
-  margin-right: 4px;
-}
-.carousel-control-next img{
-  margin-left: 4px;
-}
-
-/* .svg:hover {
-  fill: hsl(26, 100%, 55%) !important;
-} */
-@media screen and (max-width: 1020px) {
-  .carousel-inner {
-    border-radius: 0;
-    max-height: 320px;
-    position: relative;
-  }
-  .carousel-item img {
-    border-radius: 0;
-    margin-top: 40px;
-    max-height: 100%;
-    max-width: 100%;
-    opacity: 1;
-    object-fit: cover;
-  }
-}
