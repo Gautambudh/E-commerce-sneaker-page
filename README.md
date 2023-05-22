@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Screenshot
 
-![desktop view](./src/assets/design/active-states.jpg)
-![mobile view](./src/assets/design/mobile-design.jpg)
+![desktop view](src/assets/design/active-states.jpg)
+![mobile view](src/assets/design/mobile-design.jpg)
 
 ### Links
 
@@ -50,18 +50,19 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Styled Components](https://styled-components.com/) - For styles
+- [Material UI Components](https://mui.com/material-ui/getting-started/overview/) - For UI
+- [Carousel class](https://getbootstrap.com/docs/5.3/components/carousel) - For making carousel
 
 ### What I learned
 
-- abc
-
-
-
+- learnt more about redux and redux toolkit, store, provider, redux-slice
+- customizing carousel of bootstrap 5
+- customizing Dialog component of material ui
 
 ### Useful resources
 
 - [React](https://reactjs.org/) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [material UI documentation](https://mui.com/material-ui/getting-started/overview/) - This is the official documentation which helped me finally understand material ui components. I'd recommend it to anyone still learning this concept.
+- [material UI documentation](https://mui.com/material-ui/getting-started/overview/) - This is the official documentation which helped me finally understand material ui components. I'd recommend it to anyone still learning this concept. Lots of Components that i used in this project like the responsive appbar with tabs and tab indicator, Dialog for image gallery view and many more. Its very useful in builing ui faster.
 
 ## Author
 
