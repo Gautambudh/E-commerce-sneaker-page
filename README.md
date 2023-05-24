@@ -1,4 +1,3 @@
-# Frontend Mentor - Interactive card details form solution
 
 # Frontend Mentor - E-commerce product page solution
 
