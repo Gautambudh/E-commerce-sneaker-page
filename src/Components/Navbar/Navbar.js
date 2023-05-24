@@ -102,7 +102,8 @@ function Navbar() {
             {/* </Box> */}
             {/* <TabPanel value="1">Item One</TabPanel>
             <TabPanel value="2">Item Two</TabPanel>
-            <TabPanel value="3">Item Three</TabPanel> */}
+            <TabPanel value="3">Item Three</TabPanel>
+            <TabPanel value="4">Item Four</TabPanel> */}
             </TabContext>
           </Box>
           </Box>
