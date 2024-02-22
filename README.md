@@ -15,8 +15,6 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -31,9 +29,9 @@ Users should be able to:
 - View the cart and remove items from it
 
 ### Screenshot
+![active-states-basket-filled](https://github.com/Gautambudh/E-commerce-sneaker-page/assets/112330342/51aa3288-4902-4c55-8d48-d5e589ab3a20)
 
-![desktop view](src/assets/design/active-states.jpg)
-![mobile view](src/assets/design/mobile-design.jpg)
+![desktop-design-lightbox](https://github.com/Gautambudh/E-commerce-sneaker-page/assets/112330342/7cc10525-c79f-49dd-9561-28978a38ed7b)
 
 ### Links
 
