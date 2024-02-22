@@ -169,7 +169,7 @@ const Herosection = () => {
           }}}
           startIcon={<ShoppingCartOutlinedIcon />}
           onClick={() => dispatch(isAddToCartClicked({value: true}))}>
-            Add to cart
+            Add to carts
           </Button>
           </Box>
         </Grid>
